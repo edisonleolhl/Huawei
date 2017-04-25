@@ -1,0 +1,22 @@
+{
+    // 插件开关
+    "qiniu.enable": true,
+
+    // 一个有效的七牛 AccessKey 签名授权
+    "qiniu.access_key": "Dn2PXLKiMWVj229zRIepwH2-O7os8FGwR_YU6X4A",
+
+    // 一个有效的七牛 SecretKey 签名授权
+    "qiniu.secret_key": "tEYd0dxkN3n5oRyk9KF-aGdCepYuPBYxABIuJqml",
+
+    // 七牛图片上传空间
+    "qiniu.bucket": "edisonleolhl",
+
+    // 七牛图片上传路径，参数化命名，暂时支持 ${fileName}、${mdFileName}、${date}、${dateTime}
+    // 示例：
+    //   ${fileName}-${date} -> picName-20160725.jpg
+    //   ${mdFileName}-${dateTime} -> markdownName-20170412222810.jpg
+    "qiniu.remotePath": "${fileName}",
+
+    // 七牛图床域名
+    "qiniu.domain": "http://ooy7h5h7x.bkt.clouddn.com"
+}
