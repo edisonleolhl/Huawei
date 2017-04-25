@@ -12,15 +12,17 @@
   - 基于 IP 子网地址划分
   - 基于协议划分
 - VLAN 转发流程
-![vlan](http://ooy7h5h7x.bkt.clouddn.com/vlan.jpg)
+  ![vlan](http://ooy7h5h7x.bkt.clouddn.com/vlan.jpg)
 - VLAN 端口类型
-![vlan principle](http://ooy7h5h7x.bkt.clouddn.com/vlan%20principle.PNG)
+  ![vlan principle](http://ooy7h5h7x.bkt.clouddn.com/vlan%20principle.PNG)
 - hybrid 端口更灵活，可以在主机与设备或者设备与设备之间设置，可自定义
   - 比如某端口设置 hybrid 端口，其 PVID 为5
   - 可自定义设置允许放行的 VLAN，比如：untagged 方式放行 vlan 1 5，tagged 方式放行 vlan 7
   - 当转发 vlan 1 5 时，去标签 untagged 转发
 
 - 自动配置：GVRP 协议
+  - GVRP(GARP Vlan Registration Protocol)
+  - GARP(Generic Attribute Registration Protocol, 通用属性注册协议)
 
 ## VLAN 路由
 
@@ -48,23 +50,23 @@
         [RT]dis vlan 11
         * : management-vlan
         ---------------------
-        VLAN ID Type         Status   MAC Learning Broadcast/Multicast/Unicast Property 
+        VLAN ID Type         Status   MAC Learning Broadcast/Multicast/Unicast Property
         --------------------------------------------------------------------------------
-        11      common       enable   enable       forward   forward   forward default  
+        11      common       enable   enable       forward   forward   forward default
 
         -------------------
-        Untagged      Port: Ethernet0/0/0               Ethernet0/0/1               
-                            Ethernet0/0/2               
+        Untagged      Port: Ethernet0/0/0               Ethernet0/0/1
+                            Ethernet0/0/2
         -------------------
-        Active Untag  Port: Ethernet0/0/0               Ethernet0/0/1               
-                            Ethernet0/0/2               
+        Active Untag  Port: Ethernet0/0/0               Ethernet0/0/1
+                            Ethernet0/0/2
         ---------------------
-        Interface                   Physical 
-        Ethernet0/0/0               UP      
-        Ethernet0/0/1               UP      
-        Ethernet0/0/2               UP      
+        Interface                   Physical
+        Ethernet0/0/0               UP
+        Ethernet0/0/1               UP
+        Ethernet0/0/2               UP
 
-  可以看到：e 0/0/0 ~ e 0/0/2 加入了 VLAN 11          
+  可以看到：e 0/0/0 ~ e 0/0/2 加入了 VLAN 11
 
 - 修改端口类型时，报错:
 
@@ -103,7 +105,7 @@
       [SWA-Ethernet0/3]port link-type trunk
       [SWA-Ethernet0/3]port trunk pvid vlan 3
       \\ 配置 trunk-like 所允许通过的 vlan 标签（permitted vlan）
-      [SWA-Ethernet0/3]port trunk allow-pass vlan 5 
+      [SWA-Ethernet0/3]port trunk allow-pass vlan 5
 - 配置 hybrid 接口类型：
 - 配置 GVRP（在所有端口配置 GVRP 协议）：
 
@@ -153,7 +155,7 @@
     - 在 VLAN10 中的 User1 主机上配置 IP 地址为 10.10.10.3/24，缺省网关为 VLANIF10 接口的 IP 地址 10.10.10.2/24。
     - 在 VLAN20 中的 User2 主机上配置 IP 地址为 10.10.20.3/24，缺省网关为 VLANIF20 接口的 IP 地址 10.10.20.2/24。
     - 配置完成后，VLAN10 内的 User1 与 VLAN20 内的 User2 能够相互访问。
-    - [参考教程](http://www.023wg.com/vlan/138.html) 
+    - [参考教程](http://www.023wg.com/vlan/138.html)
 - 利用子接口实现单臂路由
   ![singlearm](http://ooy7h5h7x.bkt.clouddn.com/singlearm.png)
   - 应用场景：

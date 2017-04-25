@@ -40,4 +40,3 @@
   - 比较配置文件
 
         compare configuration
-
