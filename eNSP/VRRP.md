@@ -127,3 +127,4 @@
   - 具体配置：
 
         [Huawei-GigabitEthernet0/0/1]vrrp vrid 2 priority 120
+  - 缺省情况下，优先级值为100。
